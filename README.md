@@ -1,23 +1,32 @@
 ## Установка Odoo 15
 
 Чтобы установить базу данных PostgreSQL в системе Debian/Ubuntu, выполните следующие команды:
+```console
+sudo apt update && sudo apt upgrade
+```
 
-`sudo apt update && sudo apt upgrade`
+Устанавливаем PostgreSQL:
+```console
+sudo apt install postgresql
+```
 
-Устанавливаем PostgreSQL: <br>
-`sudo apt install postgresql`
+Создаем суперпользователя:
+```console
+sudo su -c "createuser -s $USER" postgres
+```
 
-Создаем суперпользователя: <br>
-`sudo su -c "createuser -s $USER" postgres`
-
-Проверяем статус базы данных: <br>
-`systemctl status postgresql`
+Проверяем статус базы данных:
+```console
+systemctl status postgresql
+```
 
 Если вы используете Ubuntu внутри WSL, обратите внимание, 
 что системные службы не запускаются автоматически. Это означает, 
 что служба PostgreSQL должна быть запущена вручную, чтобы база данных была доступна. 
-Чтобы вручную запустить службу PostgreSQL, выполните следующую команду: <br>
-`sudo service postgresql start`
+Чтобы вручную запустить службу PostgreSQL, выполните следующую команду:
+```console
+sudo service postgresql start
+```
 
 ## Каждая Odoo использует свою версию python!!! Перед установкой Odoo надо обязательно проверить версию python!!!
 #### в Odoo 15 это python 8.6
